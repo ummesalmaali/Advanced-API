@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fun With API</title>
+</head>
+
+<body>
+    <h1 id="activity"></h1>
+    <h2>earn from here <a id="activity_link" href="">Visit this place</a></h2>
+    <script>
+        function doSomething() {
+            fetch('http://www.boredapi.com/api/activity/')
+                .then(res => res.json())
+                .then(data => {
+                    document.getElementById("activity").innerText = data.activity;
+
+                })
+        }
+        doSomething()
+         setInterval(() => {
+             doSomething();
+         }, 10000);
+    </script>
+</body>
+
+</html>
